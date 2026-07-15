@@ -24,7 +24,7 @@ form {
 }
 
 /* --- BOTÕES BÁSICOS (Com efeitos de movimento e clique) --- */
-input[type="submit"], button {
+input[type="submit"], input[type="reset"], input[type="button"], button {
     display: block; /* Garante que o navegador aceite a transformação de movimento */
     background-color: #000000;
     color: #ffffff;
@@ -41,18 +41,18 @@ input[type="submit"], button {
 }
 
 /* ONDE VOCÊ CONTROLA O MOUSE EM CIMA: */
-input[type="submit"]:hover, button:hover {
+input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"], button:hover {
     transform: translateY(-5px); /* Aumentamos para 5px para o efeito ficar bem nítido */
 }
 
 /* ONDE VOCÊ CONTROLA O CLIQUE: */
-input[type="submit"]:active, button:active {
+input[type="submit"]:active, input[type="reset"]:active, input[type="button"], button:active {
     transform: scale(0.92); /* Encolhe levemente simulando o clique físico */
 }
 
 
 /* Animação básica ao clicar no PC ou tocar no Mobile */
-input[type="submit"]:active, button:active {
+input[type="submit"]:active, input[type="reset"]:active, input[type="button"], button:active {
     transform: scale(0.95); /* Encolhe levemente simulando o clique físico */
 }
 
@@ -136,7 +136,7 @@ tr:first-child {
     td:nth-of-type(7):before { content: "Mensagem:"; }
     
     /* Ajusta os botões dentro das células do mobile */
-    input[type="submit"] {
+    input[type="submit"], input[type="reset"], input[type="button"] {
         margin: 2px 0;
     }
 }
