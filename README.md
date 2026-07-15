@@ -113,7 +113,7 @@ O sistema utiliza arquivos locais isolados para gerenciar o acesso de dados com 
 ### 1. Arquivo de Credenciais
 Crie o arquivo de configurações exatamente no caminho interno abaixo:
 ```ini
-atv060526/config/credenciais.ini
+/config/credenciais.ini
 ```
 
 Configure as variáveis de acordo com as informações de rede do seu banco de dados:
@@ -147,5 +147,4 @@ Utilize uma pilha de servidores local (como **XAMPP**, WAMP ou Laragon) rodando 
 ### 2. Ambiente de Produção (Hospedagem Web)
 O sistema está totalmente publicado, configurado e operacional na nuvem através do serviço **InfinityFree** para fins de portfólio profissional e demonstrações técnicas.
 
-Link oficial do projeto: [http://freehosting.dev
-](https://cadastro-visitantes.freehosting.dev/)
+Link oficial do projeto: [cadastro-visitantes.freehosting.dev](https://cadastro-visitantes.freehosting.dev/)
