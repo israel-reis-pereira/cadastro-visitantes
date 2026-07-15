@@ -20,11 +20,13 @@ $totalRegistros = mysqli_num_rows($resultado);
 <html lang="pt-br">
 <head>
  <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+ <link rel="stylesheet" href="css/style.css"> 
  <title>Resultados da pesquisa</title>
 </head>
 <body>
 <?php if ($totalRegistros > 0) { ?> <!-- verifica se tem resultados -->
-    <table border="1">
+    <table border="1"><h1>Resultados da Pesquisa</h1>
         <tr>
             <td><b>Cód</b></td>
             <td><b>Nome</b></td>
@@ -32,8 +34,8 @@ $totalRegistros = mysqli_num_rows($resultado);
             <td><b>Data</b></td>
             <td><b>Mensagem</b></td>
         </tr>
-        <?php while ($linha = mysqli_fetch_assoc($resultado)) {
-            $dataFormatada = date("d/m/Y H:i:s", strtotime($linha["data"])); ?>
+        <?php while ($linha = mysqli_fetch_assoc($resultado)) { // laço que quebra os resultados em arrays por linha
+            $dataFormatada = date("d/m/Y H:i:s", strtotime($linha["data"])); ?> 
         <tr>
             <td><?php echo (int) $linha["cod"]; ?></td>
             <td><?php echo htmlspecialchars($linha["nome"], ENT_QUOTES, "UTF-8"); ?></td>
@@ -52,11 +54,10 @@ $totalRegistros = mysqli_num_rows($resultado);
 // libera memoria da variavel
 mysqli_free_result($resultado);
 mysqli_stmt_close($stmt);
-// fecha conexao global
+// fecha conexao global se estiver ativa
 if (isset($conexao) && $conexao) {
     mysqli_close($conexao);
 }
-
 ?>
 </body>
 </html>

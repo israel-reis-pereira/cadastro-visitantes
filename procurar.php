@@ -7,39 +7,38 @@ $resultado = mysqli_query($conexao, $query);
 <html lang="pt-br">
 <head>
  <meta charset="utf-8">
- <title>Procuras</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+ <link rel="stylesheet" href="css/style.css">
+ <title>Procurar</title>
 </head>
 <body>
 <center>
     <form method="post" action="exibe.php">
-    <table border="1" bordercolor="blue">
-        <tr>
-            <td colspan="2">
-            <center><b><font face="arial" size="4" color="blue">
-            Alteração ou exclusão de registros
-            </font></b></center>
-            </td>
-        </tr>
-        <tr>
-            <td width="150"><font face="arial">Selecione um nome:</font></td>
-            <td>
-                <select name="procura" size="1">
-                    <?php while ($linha = mysqli_fetch_assoc($resultado)) { ?>
-                        <option value="<?php echo (int) $linha["cod"]; ?>">
-                        <?php echo htmlspecialchars($linha["nome"], ENT_QUOTES, "UTF-8");
-                        ?>
-                        </option>
-                    <?php } ?>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td><center><input type="reset" value="Limpar"></center></td>
-            <td><center><input type="submit" value="Enviar"></center></td>
-        </tr>
-    </table>
+        <table>
+            <tr>
+                <td colspan="2">
+                <center><h1>Gerenciar Registros</h1></center>
+                </td>
+            </tr>
+            <tr>
+                <td width="150"><font face="arial">Selecione um nome:</font></td>
+                <td>
+                    <select name="procura" size="1">
+                        <?php while ($linha = mysqli_fetch_assoc($resultado)) { ?>
+                            <option value="<?php echo (int) $linha["cod"]; ?>">
+                            <?php echo htmlspecialchars($linha["nome"], ENT_QUOTES, "UTF-8"); ?>
+                            </option>
+                        <?php } ?>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="reset" value="Limpar"></td> 
+                <td><input type="submit" value="Enviar"></td>
+            </tr>
+        </table>
     </form>
-    <p><input type="button" value="Voltar" onclick="window.location.href='index.php';"> 
+    <p><button onclick="window.location.href='index.php';">Voltar</button></p>
     <?php 
         // Liberação dos recursos da memória do servidor
         mysqli_free_result($resultado); 

@@ -28,7 +28,7 @@ $totalRegistros = mysqli_num_rows($resultado);
 <body>    
 <?php if ($totalRegistros > 0) { ?>
 <div class="table-responsive">
-    <table border="1">
+    <table border="1"><h1>Resultados da Pesquisa com Opções</h1> 
         <tr>
             <td><b>Opção 1</b></td>
             <td><b>Opção 2</b></td>

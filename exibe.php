@@ -27,25 +27,27 @@ $linha = null;
 <html lang="pt-br">
 <head>
  <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="css/style.css">
  <title>Livro de Visitas: Alterar</title>
 </head>
-<body bgcolor="white">
+<body>
 <h1>Alterações no Livro de Visitas</h1>
 <?php if ($err !== "") { ?>
  <p style="color:red;"><?php echo htmlspecialchars($err, ENT_QUOTES, "UTF-8"); ?></p>
 <?php } ?>
 <?php if ($linha) { ?>
 <form method="post" action="alterar.php">
-    <table border="0">
+    <table>
     <tr>
     <td>Nome:</td>
-    <td><input type="text" size="150" name="nome"
+    <td><input type="text"  name="nome"
     value="<?php echo htmlspecialchars($linha["nome"], ENT_QUOTES, "UTF-8"); ?>"
     maxlength="250"></td>
     </tr>
     <tr>
     <td>Localização:</td>
-    <td><input type="text" size="150" name="localizacao"
+    <td><input type="text" name="localizacao"
     value="<?php echo htmlspecialchars($linha["localizacao"], ENT_QUOTES, "UTF-8");
     ?>"
     maxlength="45"></td>
@@ -58,21 +60,21 @@ $linha = null;
     </tr>
     <tr>
     <td colspan="2">
-    <textarea cols="60" rows="10" name="mensagem"><?php
+    <textarea  rows="10" name="mensagem"><?php
     echo htmlspecialchars($linha["mensagem"], ENT_QUOTES, "UTF-8");
     ?></textarea>
     </td>
     </tr>
     </table>
     <input type="hidden" name="cod" value="<?php echo (int) $linha["cod"]; ?>">
-    <input type="reset" value="Recarregar">
+    <p><input type="reset" value="Recarregar"></p>
     <input type="submit" value="Alterar">
 </form>
-<form method="post" action="deletar.php">
- <input type="hidden" name="cod" value="<?php echo (int) $linha["cod"]; ?>">
- <br><input type="submit" value="Apagar">
- <input type="button" value="Voltar" onclick="window.location.href='index.php';"> 
-</form>
+    <form method="post" action="deletar.php"> 
+            <input type="hidden" name="cod" value="<?php echo (int) $linha["cod"]; ?>"> 
+            <p><input type="submit" value="Apagar"></p>
+            <input type="button" value="Voltar" onclick="window.location.href='index.php';">
+    </form> 
 <?php } ?>
 </body>
 </html>
