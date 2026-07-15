@@ -83,66 +83,41 @@ tr:first-child {
     font-weight: bold;
 }
 
-.invisiveldesktop {
-    display: none !important;
-}
-
-.visiveldesktop {
-    display: block !important;
-    }
-
-.container-botoes {
-    display: flex; /* Ativa o alinhamento flexível */
-    gap: 10px;     /* Adiciona um pequeno espaço entre os botões */
-    margin-bottom: 20px;
-}
-
-/* Opcional: Para garantir que os botões não fiquem gigantes no desktop */
-.container-botoes button {
-    width: auto; /* Permite que o botão tenha o tamanho do texto */
-    min-width: 120px; /* Garante um tamanho mínimo para ficar bonito */
-}
-
 /* --- MODO MOBILE (Responsividade Sem Rolagem) --- */
 @media screen and (max-width: 768px) {
-    /* Transforma a estrutura em blocos verticais apenas para tabelas de listagem */
-    table.tabela-dados, 
-    table.tabela-dados thead, 
-    table.tabela-dados tbody, 
-    table.tabela-dados th, 
-    table.tabela-dados td, 
-    table.tabela-dados tr {
+    /* Esconde o cabeçalho original com os nomes das colunas */
+    table, thead, tbody, th, td, tr {
         display: block;
     }
     
-    /* Esconde a primeira linha de títulos APENAS na tabela de listagem */
-    table.tabela-dados tr:first-child {
+    tr:first-child {
         display: none;
     }
     
-    /* Transforma cada linha da listagem em um cartão isolado */
-    table.tabela-dados tr {
+    /* Transforma cada linha da tabela em um cartão isolado */
+    tr {
         border: 2px solid #000000;
         margin-bottom: 15px;
         padding: 5px;
         background-color: #ffffff;
     }
     
-    /* Aplica as legendas laterais APENAS na tabela de listagem */
-    table.tabela-dados td {
+    /* Faz cada célula ocupar a largura total, eliminando a rolagem lateral */
+    td {
         border: none !important;
         border-bottom: 1px solid #e0e0e0 !important;
         position: relative;
-        padding-left: 40%; 
+        padding-left: 40%; /* Cria espaço na esquerda para a legenda */
         min-height: 24px;
         white-space: normal;
     }
     
-    table.tabela-dados td:last-child {
+    td:last-child {
         border-bottom: none !important;
     }
     
-    table.tabela-dados td:before {
+    /* Insere o nome da respectiva coluna dinamicamente antes do dado */
+    td:before {
         position: absolute;
         left: 6px;
         width: 35%;
@@ -151,16 +126,17 @@ tr:first-child {
         font-weight: bold;
     }
     
-    /* Mapeamento das legendas para resultados2.php */
-    table.tabela-dados td.col-alt:before { content: "Opção 1:"; }
-    table.tabela-dados td.col-del:before { content: "Opção 2:"; }
-    table.tabela-dados td.col-cod:before { content: "Cód:"; }
-    table.tabela-dados td.col-nome:before { content: "Nome:"; }
-    table.tabela-dados td.col-local:before { content: "Localização:"; }
-    table.tabela-dados td.col-data:before { content: "Data:"; }
-    table.tabela-dados td.col-msg:before { content: "Mensagem:"; }
+    /* Mapeamento das legendas baseado na ordem das suas colunas */
+    td:nth-of-type(1):before { content: "Opção 1:"; }
+    td:nth-of-type(2):before { content: "Opção 2:"; }
+    td:nth-of-type(3):before { content: "Cód:"; }
+    td:nth-of-type(4):before { content: "Nome:"; }
+    td:nth-of-type(5):before { content: "Localização:"; }
+    td:nth-of-type(6):before { content: "Data:"; }
+    td:nth-of-type(7):before { content: "Mensagem:"; }
     
-    table.tabela-dados input[type="submit"] {
+    /* Ajusta os botões dentro das células do mobile */
+    input[type="submit"], input[type="reset"], input[type="button"] {
         margin: 2px 0;
     }
 }
