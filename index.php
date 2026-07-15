@@ -10,7 +10,6 @@
     <center><h1>Início<br>
    <!-- Comentários mantidos ocultos conforme o seu arquivo original -->
     <!-- 
-    <p><button onclick="window.location.href='ler.php';">Ler</button></p>
     <p><button onclick="window.location.href='deletar.php';">Deletar</button></p>
     <p><button onclick="window.location.href='exibe.php';">Exibir</button></p>
     <p><button onclick="window.location.href='alterar.php';">Alterar</button></p>
@@ -21,6 +20,7 @@
     
     <!-- Links legítimos de interface adaptados para botões com efeitos táteis -->
     <p><button onclick="window.location.href='procurar.php';">Procurar</button></p> 
+    <p><button onclick="window.location.href='ler.php';">Ler</button></p>
     <p><button onclick="window.location.href='assinar.php';">Assinar</button></p> 
     <p><button onclick="window.location.href='mostrar.php';">Mostrar</button></p> 
     <p><button onclick="window.location.href='consultar.php';">Consultar</button></p> </center>
