@@ -26,7 +26,7 @@ $totalRegistros = mysqli_num_rows($resultado);
 </head>
 <body>
 <?php if ($totalRegistros > 0) { ?> <!-- verifica se tem resultados -->
-    <table border="1"><h1>Resultados da Pesquisa</h1>
+    <table class="tabela-dados"><h1>Resultados da Pesquisa</h1>
         <tr>
             <td><b>Cód</b></td>
             <td><b>Nome</b></td>
@@ -36,13 +36,13 @@ $totalRegistros = mysqli_num_rows($resultado);
         </tr>
         <?php while ($linha = mysqli_fetch_assoc($resultado)) { // laço que quebra os resultados em arrays por linha
             $dataFormatada = date("d/m/Y H:i:s", strtotime($linha["data"])); ?> 
-        <tr>
-            <td><?php echo (int) $linha["cod"]; ?></td>
-            <td><?php echo htmlspecialchars($linha["nome"], ENT_QUOTES, "UTF-8"); ?></td>
-            <td><?php echo htmlspecialchars($linha["localizacao"], ENT_QUOTES, "UTF-8"); ?></td>
-            <td><?php echo $dataFormatada; ?></td>
-            <td><?php echo nl2br(htmlspecialchars($linha["mensagem"], ENT_QUOTES, "UTF-8")); ?></td>
-        </tr>
+        <tr> 
+            <td class="col-cod"><?php echo (int) $linha["cod"]; ?></td> 
+            <td class="col-nome"><?php echo htmlspecialchars($linha["nome"], ENT_QUOTES, "UTF-8"); ?></td> 
+            <td class="col-local"><?php echo htmlspecialchars($linha["localizacao"], ENT_QUOTES, "UTF-8"); ?></td> 
+            <td class="col-data"><?php echo $dataFormatada; ?></td> 
+            <td class="col-msg"><?php echo nl2br(htmlspecialchars($linha["mensagem"], ENT_QUOTES, "UTF-8")); ?></td> 
+        </tr> 
         <?php } ?>
     </table>
 <?php } else { ?>

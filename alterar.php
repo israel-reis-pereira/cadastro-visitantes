@@ -16,17 +16,33 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     mysqli_stmt_bind_param($stmt, "ssssi", $nome, $localizacao, $mensagem, $data, $cod);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("Location: procurar.php");
-    exit;
-    } else {
-    echo 'Preencha todos os campos!<br>
-    <button onclick="window.history.back()">Voltar</button>';
-    }
-} else {
- echo '<h1>A página deve ser acessada a partir do formulário de alteração.</h1><br>
- <center><button onclick="window.history.back()">Voltar</button>';
-}
-if (isset($conexao) && $conexao) {
-    mysqli_close($conexao);
+
+    if (isset($conexao) && $conexao) { 
+            mysqli_close($conexao); 
+        }
+        
+        header("Location: procurar.php"); 
+        exit; 
+    } else { 
+        exibirMensagem("Preencha todos os campos!");
+    } 
+} else { 
+    exibirMensagem("A página deve ser acessada a partir do formulário de alteração", true);
+} 
+if (isset($conexao) && $conexao) { 
+    mysqli_close($conexao); 
+} 
+function exibirMensagem($texto, $usarH1 = false) {
+    echo '<!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">';
+    echo $usarH1 ? '<title>Acesso Negado</title></head><body>' : '<title>Aviso</title></head><body>';
+    echo $usarH1 ? "<h1>$texto</h1>" : "<p>$texto</p>";
+    echo '<br><p><button onclick="window.history.back()">Voltar</button></p>
+    </body>
+    </html>';
 }
 ?>

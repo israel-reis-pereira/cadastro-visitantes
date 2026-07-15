@@ -1,7 +1,7 @@
 <?php
 require_once "conectar.php";
 $begin = isset($_GET["begin"]) ? max(0, (int) $_GET["begin"]) : 0; // impede de usar valor menor que 0
-$limite = 20;
+$limite = 10;
 
 // Total de mensagens
 $queryTotal = "SELECT COUNT(*) AS total FROM livro";
